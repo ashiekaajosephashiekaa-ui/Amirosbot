@@ -1,0 +1,2 @@
+# This folder stores the SQLite database file at runtime.
+# The database file itself is excluded from git via .gitignore.
