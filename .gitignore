@@ -1,0 +1,50 @@
+amiros-football-analytics/
+│
+├── src/
+│   ├── bot/
+│   │   ├── bot.ts
+│   │   ├── commands.ts
+│   │   ├── keyboards.ts
+│   │   └── handlers.ts
+│   │
+│   ├── api/
+│   │   ├── server.ts
+│   │   ├── routes.ts
+│   │   └── middleware.ts
+│   │
+│   ├── database/
+│   │   ├── database.ts
+│   │   ├── schema.ts
+│   │   └── seed.ts
+│   │
+│   ├── services/
+│   │   ├── mappers.ts
+│   │   ├── matchService.ts
+│   │   ├── predictionService.ts
+│   │   ├── premiumService.ts
+│   │   ├── userService.ts
+│   │   └── telegramAuth.ts
+│   │
+│   ├── config/
+│   │   └── config.ts
+│   │
+│   ├── types/
+│   │   └── index.ts
+│   │
+│   └── index.ts
+│
+├── web/
+│   ├── index.html
+│   ├── app.js
+│   └── styles.css
+│
+├── data/
+│   └── .gitkeep
+│
+├── .env.example
+├── .gitignore
+├── package.json
+├── tsconfig.json
+├── railway.json
+├── README.md
+└── LICENSE
