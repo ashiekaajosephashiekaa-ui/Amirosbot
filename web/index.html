@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="dark light" />
+<meta name="theme-color" content="#0a0f1c" />
+<title>Amiros Football Analytics</title>
+<link rel="stylesheet" href="/styles.css" />
+<script src="https://telegram.org/js/telegram-web-app.js" defer></script>
+<script src="/app.js" defer></script>
+</head>
+<body>
+  <div id="app" class="app">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-logo">⚽</div>
+        <div class="brand-text">
+          <div class="brand-title">Amiros Football Analytics</div>
+          <div class="brand-sub">Professional Football Analysis &amp; Statistical Insights</div>
+        </div>
+      </div>
+      <button id="joinChannelTop" class="btn btn-outline btn-sm" type="button">📢 Join Channel</button>
+    </header>
+
+    <!-- Demo data notice (only shown when demo data is present) -->
+    <div id="demoNotice" class="notice notice-info" hidden>
+      Development data — replace with real matches before public use.
+    </div>
+
+    <!-- Tabs -->
+    <nav class="tabs" role="tablist">
+      <button class="tab active" data-tab="home" role="tab">🏠 Home</button>
+      <button class="tab" data-tab="matches" role="tab">🏆 Matches</button>
+      <button class="tab" data-tab="predictions" role="tab">🔥 Predictions</button>
+      <button class="tab" data-tab="stats" role="tab">📊 Stats</button>
+      <button class="tab" data-tab="premium" role="tab">⭐ Premium</button>
+      <button class="tab" data-tab="contact" role="tab">📞 Contact</button>
+    </nav>
+
+    <!-- Main -->
+    <main class="content">
+      <!-- HOME -->
+      <section class="panel active" id="panel-home" role="tabpanel">
+        <h2 class="section-title">🔥 Featured Matches</h2>
+        <div id="featuredList" class="card-list">
+          <div class="empty">Loading today's matches…</div>
+        </div>
+      </section>
+
+      <!-- MATCHES -->
+      <section class="panel" id="panel-matches" role="tabpanel">
+        <h2 class="section-title">🏆 Today's Matches</h2>
+        <div id="matchesList" class="card-list">
+          <div class="empty">Loading today's matches…</div>
+        </div>
+      </section>
+
+      <!-- PREDICTIONS -->
+      <section class="panel" id="panel-predictions" role="tabpanel">
+        <h2 class="section-title">🔥 Today's Predictions</h2>
+        <div class="chip-row" id="predictionFilters">
+          <button class="chip active" data-filter="All">All</button>
+          <button class="chip" data-filter="Match Result">Match Result</button>
+          <button class="chip" data-filter="Double Chance">Double Chance</button>
+          <button class="chip" data-filter="Over / Under">Over / Under</button>
+          <button class="chip" data-filter="Both Teams To Score">BTTS</button>
+        </div>
+        <div id="predictionsList" class="card-list">
+          <div class="empty">Loading predictions…</div>
+        </div>
+      </section>
+
+      <!-- STATS -->
+      <section class="panel" id="panel-stats" role="tabpanel">
+        <h2 class="section-title">📊 Statistics</h2>
+        <div id="statsList" class="card-list">
+          <div class="empty">Loading statistics…</div>
+        </div>
+      </section>
+
+      <!-- PREMIUM -->
+      <section class="panel" id="panel-premium" role="tabpanel">
+        <h2 class="section-title">⭐ Premium Analysis</h2>
+        <p class="muted">Access deeper match analysis, additional statistical insights and premium prediction content.</p>
+        <div id="premiumList" class="card-list">
+          <div class="empty">Loading premium content…</div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-primary" id="premiumContact" type="button">📞 Contact Admin</button>
+          <button class="btn btn-outline" id="premiumChannel" type="button">📢 Join Channel</button>
+        </div>
+        <p class="muted small">Analysis only — no guaranteed wins, no guaranteed income, no guaranteed returns.</p>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="panel" id="panel-contact" role="tabpanel">
+        <h2 class="section-title">📞 Contact Admin</h2>
+        <p>For questions, support or premium analysis access, contact our administrator.</p>
+        <div class="contact-card">
+          <div class="contact-label">Administrator</div>
+          <div class="contact-value" id="adminUsername">@Amiros10</div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-primary" id="contactAdmin" type="button">💬 Message @Amiros10</button>
+          <button class="btn btn-outline" id="contactChannel" type="button">📢 Join Channel</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <button class="btn btn-outline btn-block" id="footerChannel" type="button">📢 Join our Channel</button>
+      <div class="footer-note">© Amiros Football Analytics — analysis &amp; statistics only</div>
+    </footer>
+  </div>
+
+  <!-- Match analysis modal -->
+  <div class="modal-backdrop" id="modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true">
+      <div class="modal-head">
+        <div class="modal-title" id="modalTitle">Match Analysis</div>
+        <button class="modal-close" id="modalClose" type="button" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+</body>
+</html>
