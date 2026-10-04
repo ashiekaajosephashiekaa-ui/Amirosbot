@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
 <meta name="color-scheme" content="dark" />
 <meta name="theme-color" content="#0a0f1c" />
-<meta name="description" content="Amiros Football Analytics — professional football match analysis, statistics and prediction insights." />
-<title>Amiros Football Analytics</title>
+<meta name="description" content="أميروس لتحليل كرة القدم — تحليل احترافي للمباريات وإحصائيات وتوقعات مبنية على الأرقام." />
+<title>أميروس لتحليل كرة القدم</title>
 <link rel="stylesheet" href="/styles.css" />
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script src="/app.js" defer></script>
@@ -20,8 +20,12 @@
     <div class="brand">
       <div class="brand-logo" aria-hidden="true">⚽</div>
       <div class="brand-text">
-        <div class="brand-title">Amiros Football Analytics</div>
-        <div class="brand-sub">Professional Football Analysis &amp; Statistical Insights</div>
+        <div class="brand-title">أميروس لتحليل كرة القدم</div>
+        <div class="brand-sub">
+          🔥 توقعات احترافية مبنية على الإحصائيات<br />
+          🏆 تغطية يومية لأهم المباريات<br />
+          📈 تحليلات قوية مدعومة بالأرقام
+        </div>
       </div>
     </div>
   </header>
@@ -29,17 +33,17 @@
   <!-- ───── Demo notice ───── -->
   <div class="notice" id="demoNotice" hidden>
     <span class="notice-icon">ℹ️</span>
-    <span>Development data — replace with real matches before public use.</span>
+    <span>بيانات تجريبية — استبدلها ببيانات حقيقية قبل الاستخدام العام.</span>
   </div>
 
   <!-- ───── Tabs ───── -->
-  <nav class="tabs" role="tablist" aria-label="Sections">
-    <button class="tab active" data-tab="home"        role="tab" aria-selected="true">🏠 Home</button>
-    <button class="tab"        data-tab="matches"     role="tab" aria-selected="false">🏆 Matches</button>
-    <button class="tab"        data-tab="predictions" role="tab" aria-selected="false">🔥 Predictions</button>
-    <button class="tab"        data-tab="stats"       role="tab" aria-selected="false">📊 Stats</button>
-    <button class="tab"        data-tab="premium"     role="tab" aria-selected="false">⭐ Premium</button>
-    <button class="tab"        data-tab="contact"     role="tab" aria-selected="false">📞 Contact</button>
+  <nav class="tabs" role="tablist" aria-label="الأقسام">
+    <button class="tab active" data-tab="home"        role="tab" aria-selected="true">🏠 الرئيسية</button>
+    <button class="tab"        data-tab="matches"     role="tab" aria-selected="false">🏆 المباريات</button>
+    <button class="tab"        data-tab="predictions" role="tab" aria-selected="false">🔥 التوقعات</button>
+    <button class="tab"        data-tab="stats"       role="tab" aria-selected="false">📊 الإحصائيات</button>
+    <button class="tab"        data-tab="premium"     role="tab" aria-selected="false">⭐ المميزة</button>
+    <button class="tab"        data-tab="contact"     role="tab" aria-selected="false">📞 التواصل</button>
   </nav>
 
   <!-- ───── Main content ───── -->
@@ -48,91 +52,91 @@
     <!-- HOME -->
     <section class="panel active" id="panel-home" role="tabpanel">
       <div class="section-head">
-        <h2 class="section-title">🔥 Featured Matches</h2>
+        <h2 class="section-title">🔥 مباريات مميزة</h2>
         <span class="section-hint" id="homeDate"></span>
       </div>
       <div id="featuredList" class="card-list">
-        <div class="skeleton">Loading today's matches…</div>
+        <div class="skeleton">جارٍ تحميل مباريات اليوم…</div>
       </div>
     </section>
 
     <!-- MATCHES -->
     <section class="panel" id="panel-matches" role="tabpanel">
       <div class="section-head">
-        <h2 class="section-title">🏆 Today's Matches</h2>
+        <h2 class="section-title">🏆 مباريات اليوم</h2>
         <span class="section-hint" id="matchesDate"></span>
       </div>
       <div id="matchesList" class="card-list">
-        <div class="skeleton">Loading today's matches…</div>
+        <div class="skeleton">جارٍ تحميل مباريات اليوم…</div>
       </div>
     </section>
 
     <!-- PREDICTIONS -->
     <section class="panel" id="panel-predictions" role="tabpanel">
       <div class="section-head">
-        <h2 class="section-title">🔥 Today's Predictions</h2>
+        <h2 class="section-title">🔥 توقعات اليوم</h2>
         <span class="section-hint" id="predsDate"></span>
       </div>
       <div class="chip-row" id="predictionFilters" role="tablist">
-        <button class="chip active" data-filter="All">All</button>
-        <button class="chip" data-filter="Match Result">Match Result</button>
-        <button class="chip" data-filter="Double Chance">Double Chance</button>
-        <button class="chip" data-filter="Over / Under">Over / Under</button>
-        <button class="chip" data-filter="Both Teams To Score">BTTS</button>
+        <button class="chip active" data-filter="All">الكل</button>
+        <button class="chip" data-filter="Match Result">نتيجة المباراة</button>
+        <button class="chip" data-filter="Double Chance">فرصة مزدوجة</button>
+        <button class="chip" data-filter="Over / Under">أكثر / أقل</button>
+        <button class="chip" data-filter="Both Teams To Score">الفريقان يسجلان</button>
       </div>
       <div id="predictionsList" class="card-list">
-        <div class="skeleton">Loading predictions…</div>
+        <div class="skeleton">جارٍ تحميل التوقعات…</div>
       </div>
     </section>
 
     <!-- STATS -->
     <section class="panel" id="panel-stats" role="tabpanel">
       <div class="section-head">
-        <h2 class="section-title">📊 Statistics</h2>
+        <h2 class="section-title">📊 الإحصائيات</h2>
       </div>
-      <p class="muted">Select a match to see recent form, goals, possession and expected goals.</p>
+      <p class="muted">اختر مباراة لعرض الأداء الأخير والأهداف والاستحواذ والأهداف المتوقعة.</p>
       <div id="statsList" class="card-list">
-        <div class="skeleton">Loading statistics…</div>
+        <div class="skeleton">جارٍ تحميل الإحصائيات…</div>
       </div>
     </section>
 
     <!-- PREMIUM -->
     <section class="panel" id="panel-premium" role="tabpanel">
       <div class="section-head">
-        <h2 class="section-title">⭐ Premium Analysis</h2>
+        <h2 class="section-title">⭐ التحليل المميز</h2>
       </div>
-      <p class="muted">Access deeper match analysis, additional statistical insights and premium prediction content.</p>
+      <p class="muted">احصل على تحليل أعمق للمباريات، ورؤى إحصائية إضافية، ومحتوى توقعات مميز.</p>
       <div id="premiumList" class="card-list">
-        <div class="skeleton">Loading premium content…</div>
+        <div class="skeleton">جارٍ تحميل المحتوى المميز…</div>
       </div>
       <div class="btn-row">
-        <button class="btn btn-primary" id="premiumContact" type="button">📞 Contact Admin</button>
-        <button class="btn btn-outline" id="premiumChannel" type="button">📢 Join Channel</button>
+        <button class="btn btn-primary" id="premiumContact" type="button">📞 تواصل مع الإدارة</button>
+        <button class="btn btn-outline" id="premiumChannel" type="button">📢 انضم للقناة</button>
       </div>
-      <p class="disclaimer">Analysis only — no guaranteed wins, no guaranteed income, no guaranteed returns.</p>
+      <p class="disclaimer">تحليل إحصائي فقط — لا نضمن أي نتيجة أو أرباح.</p>
     </section>
 
     <!-- CONTACT -->
     <section class="panel" id="panel-contact" role="tabpanel">
       <div class="section-head">
-        <h2 class="section-title">📞 Contact Admin</h2>
+        <h2 class="section-title">📞 تواصل مع الإدارة</h2>
       </div>
-      <p class="muted">For questions, support or premium analysis access, contact our administrator.</p>
+      <p class="muted">للاستفسارات أو الدعم أو للوصول إلى التحليل المميز، تواصل مع الإدارة.</p>
 
       <div class="contact-card">
         <div class="contact-row">
-          <div class="contact-label">Administrator</div>
+          <div class="contact-label">المسؤول</div>
           <div class="contact-value" id="adminUsername">@Amiros10</div>
         </div>
         <div class="contact-row">
-          <div class="contact-label">Channel</div>
+          <div class="contact-label">القناة</div>
           <div class="contact-value" id="channelUsername">@Amiros_1</div>
         </div>
       </div>
 
       <div class="btn-row">
-        <button class="btn btn-primary" id="contactAdmin" type="button">💬 Message Admin</button>
-        <button class="btn btn-outline" id="contactChannel" type="button">📢 Join Channel</button>
+        <button class="btn btn-primary" id="contactAdmin" type="button">💬 مراسلة الإدارة</button>
+        <button class="btn btn-outline" id="contactChannel" type="button">📢 انضم للقناة</button>
       </div>
     </section>
 
@@ -140,8 +144,8 @@
 
   <!-- ───── Footer ───── -->
   <footer class="footer">
-    <button class="btn btn-outline btn-block" id="footerChannel" type="button">📢 Join our Channel</button>
-    <div class="footer-note">© Amiros Football Analytics — analysis &amp; statistics only</div>
+    <button class="btn btn-outline btn-block" id="footerChannel" type="button">📢 انضم إلى قناتنا</button>
+    <div class="footer-note">© أميروس لتحليل كرة القدم — تحليل وإحصائيات فقط</div>
   </footer>
 
 </div>
@@ -150,8 +154,8 @@
 <div class="modal-backdrop" id="modal" hidden>
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-head">
-      <div class="modal-title" id="modalTitle">Match Analysis</div>
-      <button class="modal-close" id="modalClose" type="button" aria-label="Close">✕</button>
+      <div class="modal-title" id="modalTitle">تحليل المباراة</div>
+      <button class="modal-close" id="modalClose" type="button" aria-label="إغلاق">✕</button>
     </div>
     <div class="modal-body" id="modalBody"></div>
   </div>
