@@ -1,19 +1,10 @@
-import { config } from '../config/config';
-import {
-  closeDb,
-  getDb,
-  isMatchTableEmpty,
-  isPremiumTableEmpty,
-  markDemoData,
-} from './database';
+import { closeDb, getDb, isMatchTableEmpty, markDemoData } from './database';
 
 /* ------------------------------------------------------------------ */
 /* DEMO / DEVELOPMENT DATA ONLY                                        */
-/* ------------------------------------------------------------------ */
 /* Everything below is fictional sample content used to demonstrate    */
 /* the interface. It is NOT live football data and must be replaced    */
-/* by the administrator before public use. The Mini App shows a        */
-/* visible notice while demo data is present.                          */
+/* by the administrator before public use.                             */
 /* ------------------------------------------------------------------ */
 
 interface SeedMatch {
@@ -57,12 +48,9 @@ const DEMO_MATCHES: SeedMatch[] = [
     statistics: {
       homeForm: 'W W D W L',
       awayForm: 'W D W L W',
-      homeGoals: 12,
-      awayGoals: 9,
-      homePossession: 58,
-      awayPossession: 42,
-      homeXg: 11.4,
-      awayXg: 8.1,
+      homeGoals: 12, awayGoals: 9,
+      homePossession: 58, awayPossession: 42,
+      homeXg: 11.4, awayXg: 8.1,
     },
   },
   {
@@ -81,12 +69,9 @@ const DEMO_MATCHES: SeedMatch[] = [
     statistics: {
       homeForm: 'W W W D W',
       awayForm: 'L D W L D',
-      homeGoals: 15,
-      awayGoals: 7,
-      homePossession: 61,
-      awayPossession: 39,
-      homeXg: 13.9,
-      awayXg: 6.2,
+      homeGoals: 15, awayGoals: 7,
+      homePossession: 61, awayPossession: 39,
+      homeXg: 13.9, awayXg: 6.2,
     },
   },
   {
@@ -105,12 +90,9 @@ const DEMO_MATCHES: SeedMatch[] = [
     statistics: {
       homeForm: 'W D W W D',
       awayForm: 'W W L D W',
-      homeGoals: 13,
-      awayGoals: 11,
-      homePossession: 53,
-      awayPossession: 47,
-      homeXg: 10.8,
-      awayXg: 9.7,
+      homeGoals: 13, awayGoals: 11,
+      homePossession: 53, awayPossession: 47,
+      homeXg: 10.8, awayXg: 9.7,
     },
   },
   {
@@ -129,12 +111,9 @@ const DEMO_MATCHES: SeedMatch[] = [
     statistics: {
       homeForm: 'W W W W D',
       awayForm: 'W L W W L',
-      homeGoals: 18,
-      awayGoals: 12,
-      homePossession: 59,
-      awayPossession: 41,
-      homeXg: 16.1,
-      awayXg: 10.4,
+      homeGoals: 18, awayGoals: 12,
+      homePossession: 59, awayPossession: 41,
+      homeXg: 16.1, awayXg: 10.4,
     },
   },
   {
@@ -153,12 +132,9 @@ const DEMO_MATCHES: SeedMatch[] = [
     statistics: {
       homeForm: 'W W D W W',
       awayForm: 'D L D W L',
-      homeGoals: 16,
-      awayGoals: 8,
-      homePossession: 63,
-      awayPossession: 37,
-      homeXg: 14.2,
-      awayXg: 7.0,
+      homeGoals: 16, awayGoals: 8,
+      homePossession: 63, awayPossession: 37,
+      homeXg: 14.2, awayXg: 7.0,
     },
   },
   {
@@ -177,12 +153,9 @@ const DEMO_MATCHES: SeedMatch[] = [
     statistics: {
       homeForm: 'W D W W L',
       awayForm: 'W W D W W',
-      homeGoals: 14,
-      awayGoals: 16,
-      homePossession: 52,
-      awayPossession: 48,
-      homeXg: 12.6,
-      awayXg: 13.8,
+      homeGoals: 14, awayGoals: 16,
+      homePossession: 52, awayPossession: 48,
+      homeXg: 12.6, awayXg: 13.8,
     },
   },
   {
@@ -201,12 +174,9 @@ const DEMO_MATCHES: SeedMatch[] = [
     statistics: {
       homeForm: 'D W L D W',
       awayForm: 'W W W D W',
-      homeGoals: 10,
-      awayGoals: 17,
-      homePossession: 49,
-      awayPossession: 51,
-      homeXg: 9.3,
-      awayXg: 14.5,
+      homeGoals: 10, awayGoals: 17,
+      homePossession: 49, awayPossession: 51,
+      homeXg: 9.3, awayXg: 14.5,
     },
   },
   {
@@ -225,12 +195,9 @@ const DEMO_MATCHES: SeedMatch[] = [
     statistics: {
       homeForm: 'W D W D W',
       awayForm: 'D W D W D',
-      homeGoals: 9,
-      awayGoals: 8,
-      homePossession: 55,
-      awayPossession: 45,
-      homeXg: 8.4,
-      awayXg: 7.6,
+      homeGoals: 9, awayGoals: 8,
+      homePossession: 55, awayPossession: 45,
+      homeXg: 8.4, awayXg: 7.6,
     },
   },
   {
@@ -249,12 +216,9 @@ const DEMO_MATCHES: SeedMatch[] = [
     statistics: {
       homeForm: 'W L D W D',
       awayForm: 'W W D L W',
-      homeGoals: 11,
-      awayGoals: 12,
-      homePossession: 51,
-      awayPossession: 49,
-      homeXg: 10.1,
-      awayXg: 10.9,
+      homeGoals: 11, awayGoals: 12,
+      homePossession: 51, awayPossession: 49,
+      homeXg: 10.1, awayXg: 10.9,
     },
   },
   {
@@ -273,12 +237,9 @@ const DEMO_MATCHES: SeedMatch[] = [
     statistics: {
       homeForm: 'D W D L W',
       awayForm: 'L D L W D',
-      homeGoals: 8,
-      awayGoals: 6,
-      homePossession: 54,
-      awayPossession: 46,
-      homeXg: 7.9,
-      awayXg: 6.4,
+      homeGoals: 8, awayGoals: 6,
+      homePossession: 54, awayPossession: 46,
+      homeXg: 7.9, awayXg: 6.4,
     },
   },
 ];
@@ -301,25 +262,17 @@ const DEMO_PREMIUM = [
   },
 ];
 
-/** Returns today's date (UTC) shifted by `offsetDays`, formatted YYYY-MM-DD. */
-function isoDateWithOffset(offsetDays: number): string {
-  const date = new Date();
-  date.setUTCDate(date.getUTCDate() + offsetDays);
-  return date.toISOString().slice(0, 10);
+function isoToday(): string {
+  return new Date().toISOString().slice(0, 10);
 }
 
 export interface SeedOptions {
-  /** When true, existing matches/predictions/statistics/premium rows are removed first. */
   reset?: boolean;
 }
 
-/**
- * Inserts the demo/development dataset.
- * Returns the number of matches inserted.
- */
 export function seedDemoData(options: SeedOptions = {}): number {
   const db = getDb();
-  const today = isoDateWithOffset(0);
+  const today = isoToday();
 
   const run = db.transaction((): number => {
     if (options.reset) {
@@ -357,7 +310,6 @@ export function seedDemoData(options: SeedOptions = {}): number {
         matchTime: demo.matchTime,
         featured: demo.featured ? 1 : 0,
       });
-
       const matchId = Number(result.lastInsertRowid);
 
       insertPrediction.run({
@@ -397,25 +349,21 @@ export function seedDemoData(options: SeedOptions = {}): number {
   return run();
 }
 
-/** Inserts only the premium demo rows (used when matches already exist). */
-export function seedPremiumContent(): void {
-  const db = getDb();
-  const insertPremium = db.prepare(
-    `INSERT INTO premium_content (title, content, active) VALUES (@title, @content, 1)`,
-  );
-  const run = db.transaction(() => {
-    for (const item of DEMO_PREMIUM) {
-      insertPremium.run({ title: item.title, content: item.content });
-    }
-  });
-  run();
-}
-
 /**
- * Called on startup. Ensures the app is never empty on a fresh deployment.
+ * Called on startup. Seeds demo content only when the DB is empty.
  * Returns true when demo content was inserted.
  */
 export function seedIfEmpty(): boolean {
-  let seeded = false;
+  if (!isMatchTableEmpty()) return false;
+  const inserted = seedDemoData();
+  console.log(`[seed] Inserted ${inserted} demo matches (development data — replace before public use).`);
+  return true;
+}
 
-  if (isMatchTableEmpty())
+/** CLI entry point: `npm run seed` */
+if (require.main === module) {
+  const reset = process.argv.includes('--reset');
+  const count = seedDemoData({ reset });
+  console.log(`[seed] Done. Inserted ${count} demo matches${reset ? ' (after reset)' : ''}.`);
+  closeDb();
+}
