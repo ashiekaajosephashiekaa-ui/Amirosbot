@@ -1,10 +1,12 @@
 import { InlineKeyboard } from 'grammy';
+import type { ReplyKeyboardMarkup } from 'grammy/types';
 import { adminChatUrl, channelUrl, config, isMiniAppUrlConfigured } from '../config/config';
 
 /**
- * Main reply keyboard that appears under the message input field.
+ * Persistent reply keyboard shown under the message input field.
+ * Return type is explicit and mutable so grammY accepts it.
  */
-export function mainMenuKeyboard() {
+export function mainMenuKeyboard(): ReplyKeyboardMarkup {
   return {
     keyboard: [
       [{ text: "🏆 Today's Matches" }, { text: '🔥 Predictions' }],
@@ -13,7 +15,7 @@ export function mainMenuKeyboard() {
     ],
     resize_keyboard: true,
     is_persistent: true,
-  } as const;
+  };
 }
 
 /**
@@ -38,7 +40,7 @@ export function mainInlineKeyboard(): InlineKeyboard {
   return kb;
 }
 
-export function matchesKeyboard() {
+export function matchesKeyboard(): InlineKeyboard {
   return new InlineKeyboard()
     .text('🔥 View Predictions', 'cmd:predictions')
     .row()
@@ -46,7 +48,7 @@ export function matchesKeyboard() {
     .text('📞 Contact Admin', 'cmd:contact');
 }
 
-export function predictionsKeyboard() {
+export function predictionsKeyboard(): InlineKeyboard {
   return new InlineKeyboard()
     .text('🏆 View Matches', 'cmd:matches')
     .row()
@@ -54,7 +56,7 @@ export function predictionsKeyboard() {
     .text('📞 Contact Admin', 'cmd:contact');
 }
 
-export function statsKeyboard() {
+export function statsKeyboard(): InlineKeyboard {
   return new InlineKeyboard()
     .text("🏆 Today's Matches", 'cmd:matches')
     .row()
@@ -62,7 +64,7 @@ export function statsKeyboard() {
     .text('📞 Contact Admin', 'cmd:contact');
 }
 
-export function premiumKeyboard() {
+export function premiumKeyboard(): InlineKeyboard {
   const kb = new InlineKeyboard();
   if (isMiniAppUrlConfigured) {
     kb.webApp('⭐ View Premium in Mini App', config.webAppUrl).row();
@@ -72,7 +74,7 @@ export function premiumKeyboard() {
   return kb;
 }
 
-export function contactKeyboard() {
+export function contactKeyboard(): InlineKeyboard {
   return new InlineKeyboard()
     .url('💬 Message @' + config.adminUsername, adminChatUrl)
     .row()
@@ -80,6 +82,6 @@ export function contactKeyboard() {
     .text('🏠 Main Menu', 'cmd:home');
 }
 
-export function backToMenuKeyboard() {
+export function backToMenuKeyboard(): InlineKeyboard {
   return new InlineKeyboard().text('🏠 Main Menu', 'cmd:home');
 }
